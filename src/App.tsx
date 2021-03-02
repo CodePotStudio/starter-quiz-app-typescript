@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import AnswerGroup from "./components/AnswerGroup";
 import QuestionSection from "./components/QuestionSection";
 import ResultSection from "./components/ResultSection";
