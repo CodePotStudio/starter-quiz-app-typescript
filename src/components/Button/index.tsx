@@ -30,7 +30,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 }
 `;
 
-const Button = (props: ButtonProps) => (
+const Button: React.FC<ButtonProps> = (props: ButtonProps) => (
 	<StyledButton onClick={props.onClick}>{props.text}</StyledButton>
 );
 export default Button;

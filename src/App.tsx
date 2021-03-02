@@ -2,7 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import AnswerGroup from "./components/AnswerGroup";
 import QuestionSection from "./components/QuestionSection";
+import ResultSection from "./components/ResultSection";
 import { QUIZZES } from "./constants";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 function App() {
 	const [currentNo, setCurrentNo] = useState<number>(0);
@@ -24,19 +27,20 @@ function App() {
 	const convertedScore = Math.floor((score / QUIZZES.length) * 100);
 
 	return (
-		<div className="container">
-			{showResult ? (
-				<div className="app">
-					<h1 className="result-header">당신의 점수는?</h1>
-					<p className="result-score">{convertedScore}</p>
-				</div>
-			) : (
-				<div className="app">
-					<QuestionSection currentNo={currentNo} />
-					<AnswerGroup currentNo={currentNo} handleClick={handleClick} />
-				</div>
-			)}
-		</div>
+		<ThemeProvider theme={theme}>
+			<div className="container">
+				{showResult ? (
+					<div className="app">
+						<ResultSection convertedScore={convertedScore} />
+					</div>
+				) : (
+					<div className="app">
+						<QuestionSection currentNo={currentNo} />
+						<AnswerGroup currentNo={currentNo} handleClick={handleClick} />
+					</div>
+				)}
+			</div>
+		</ThemeProvider>
 	);
 }
 
