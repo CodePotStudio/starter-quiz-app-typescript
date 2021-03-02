@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Button from "./Button";
+import AnswerGroup from "./components/AnswerGroup";
 import QUIZZES from "./constants";
 
 function App() {
@@ -37,16 +37,7 @@ function App() {
 						</h1>
 						<div className="question-text">{QUIZZES[currentNo].question}</div>
 					</div>
-					<div className="answer-section">
-						{QUIZZES[currentNo].answers.map((answer) => (
-							<Button
-								text={answer.text}
-								onClick={() => handleClick(answer.isCorrect)}
-							>
-								{answer.text}
-							</Button>
-						))}
-					</div>
+					<AnswerGroup currentNo={currentNo} handleClick={handleClick} />
 				</div>
 			)}
 		</div>

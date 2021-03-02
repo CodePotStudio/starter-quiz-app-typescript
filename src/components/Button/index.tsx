@@ -8,7 +8,7 @@ interface StyledButtonProps {
 
 interface ButtonProps extends StyledButtonProps {
 	text: string;
-	children: React.ReactNode;
+	children?: React.ReactNode;
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
