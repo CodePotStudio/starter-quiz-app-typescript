@@ -6,6 +6,7 @@ import { QUIZZES } from "./constants";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Container from "./components/Container";
+import GlobalStyle from "./globalStyle";
 
 function App() {
 	const [currentNo, setCurrentNo] = useState<number>(0);
@@ -28,6 +29,7 @@ function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
+			<GlobalStyle />
 			{showResult ? (
 				<Container>
 					<ResultSection convertedScore={convertedScore} />
