@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import AnswerGroup from "./components/AnswerGroup";
-import QUIZZES from "./constants";
+import QuestionSection from "./components/QuestionSection";
+import { QUIZZES } from "./constants";
 
 function App() {
 	const [currentNo, setCurrentNo] = useState<number>(0);
@@ -31,12 +32,7 @@ function App() {
 				</div>
 			) : (
 				<div className="app">
-					<div className="question-section">
-						<h1 className="question-header">
-							<span>{QUIZZES[currentNo].id}</span>/{QUIZZES.length}
-						</h1>
-						<div className="question-text">{QUIZZES[currentNo].question}</div>
-					</div>
+					<QuestionSection currentNo={currentNo} />
 					<AnswerGroup currentNo={currentNo} handleClick={handleClick} />
 				</div>
 			)}

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import QUIZZES from "../../constants";
+import { QUIZZES } from "../../constants";
 import Button from "../Button";
 
 interface AnswerGroupProps {
