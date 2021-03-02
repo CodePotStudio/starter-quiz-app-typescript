@@ -6,6 +6,7 @@ import ResultSection from "./components/ResultSection";
 import { QUIZZES } from "./constants";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
+import Container from "./components/Container";
 
 function App() {
 	const [currentNo, setCurrentNo] = useState<number>(0);
@@ -28,18 +29,16 @@ function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<div className="container">
-				{showResult ? (
-					<div className="app">
-						<ResultSection convertedScore={convertedScore} />
-					</div>
-				) : (
-					<div className="app">
-						<QuestionSection currentNo={currentNo} />
-						<AnswerGroup currentNo={currentNo} handleClick={handleClick} />
-					</div>
-				)}
-			</div>
+			{showResult ? (
+				<Container>
+					<ResultSection convertedScore={convertedScore} />
+				</Container>
+			) : (
+				<Container>
+					<QuestionSection currentNo={currentNo} />
+					<AnswerGroup currentNo={currentNo} handleClick={handleClick} />
+				</Container>
+			)}
 		</ThemeProvider>
 	);
 }
