@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 interface StyledButtonProps {
 	fontSize?: string;
-	onClick: () => void;
+	onClick?: () => void;
 }
 
 interface ButtonProps extends StyledButtonProps {
